@@ -1,0 +1,245 @@
+openapi: 3.0.0
+info:
+  title: Deel Backend Task API
+  version: 1.0.0
+  description: Auto-generated OpenAPI documentation for the Deel backend task
+paths:
+  /admin/best-profession:
+    get:
+      summary: Get the profession that earned the most money in a time range
+      description: >-
+        Returns the profession with the highest total earnings between the given
+        start and end dates.
+      tags:
+        - Admin
+      parameters:
+        - in: query
+          name: start
+          required: true
+          description: Start date (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          required: true
+          description: End date (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Best profession found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  profession:
+                    type: string
+                    example: Software Developer
+                  earnings:
+                    type: number
+                    format: float
+                    example: 20000
+        '400':
+          description: Invalid date range or missing parameters
+        '500':
+          description: Internal server error
+  /admin/best-clients:
+    get:
+      summary: Get the clients that paid the most in a time range
+      description: >-
+        Returns the top clients ranked by their total payments, limited by the
+        optional `limit` query param.
+      tags:
+        - Admin
+      parameters:
+        - in: query
+          name: start
+          required: true
+          description: Start date (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: end
+          required: true
+          description: End date (YYYY-MM-DD)
+          schema:
+            type: string
+            format: date
+        - in: query
+          name: limit
+          required: false
+          description: Max number of clients to return (default is 2)
+          schema:
+            type: integer
+            default: 2
+      responses:
+        '200':
+          description: Top clients retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 12
+                    fullName:
+                      type: string
+                      example: John Doe
+                    paid:
+                      type: number
+                      example: 30500
+        '400':
+          description: Invalid parameters
+        '500':
+          description: Internal server error
+  /balances/deposit/{userId}:
+    post:
+      summary: Deposit money to a user's balance
+      description: >-
+        Allows depositing a specific amount to the balance of a user (typically
+        from a client).
+      tags:
+        - Balances
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          description: The ID of the user receiving the deposit
+          schema:
+            type: integer
+            minimum: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                  format: float
+                  minimum: 0.01
+                  example: 150.5
+      responses:
+        '200':
+          description: Deposit successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Deposit completed
+        '400':
+          description: Validation failed or deposit not allowed
+        '404':
+          description: User not found
+  /contracts/{id}:
+    get:
+      summary: Get contract by ID
+      description: >-
+        Returns a contract by ID, only if the profile is either the client or
+        contractor.
+      tags:
+        - Contracts
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The ID of the contract
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '200':
+          description: Contract found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contract'
+        '400':
+          description: Invalid contract ID
+        '404':
+          description: Contract not found or access denied
+  /contracts:
+    get:
+      summary: Get all active contracts for the profile
+      description: >-
+        Returns all contracts associated with the current profile that are not
+        terminated.
+      tags:
+        - Contracts
+      responses:
+        '200':
+          description: List of contracts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Contract'
+  /jobs/unpaid:
+    get:
+      summary: Get unpaid jobs
+      description: >-
+        Returns all unpaid jobs for the currently authenticated user
+        (contractor).
+      tags:
+        - Jobs
+      responses:
+        '200':
+          description: List of unpaid jobs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Job'
+        '401':
+          description: Unauthorized
+  /jobs/{job_id}/pay:
+    post:
+      summary: Pay for a job
+      description: >-
+        Allows a client to pay for a specific job, transferring money to the
+        contractor if sufficient balance is available.
+      tags:
+        - Jobs
+      parameters:
+        - in: path
+          name: job_id
+          required: true
+          description: ID of the job to pay for
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '200':
+          description: Job paid successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  job:
+                    $ref: '#/components/schemas/Job'
+        '400':
+          description: Payment failed (e.g., not enough balance, job already paid)
+        '404':
+          description: Job not found or unauthorized
+components: {}
+tags: []

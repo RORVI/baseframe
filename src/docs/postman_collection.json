@@ -1,0 +1,1150 @@
+{
+    "item": [
+        {
+            "name": "admin",
+            "description": "",
+            "item": [
+                {
+                    "name": "best-profession",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "81c4fdfb-3c8d-4a61-8596-340b410c743b",
+                            "name": "Get the profession that earned the most money in a time range",
+                            "request": {
+                                "name": "Get the profession that earned the most money in a time range",
+                                "description": {
+                                    "content": "Returns the profession with the highest total earnings between the given start and end dates.",
+                                    "type": "text/plain"
+                                },
+                                "url": {
+                                    "path": [
+                                        "admin",
+                                        "best-profession"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) Start date (YYYY-MM-DD)",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "start",
+                                            "value": "<date>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) End date (YYYY-MM-DD)",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "end",
+                                            "value": "<date>"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                            },
+                            "response": [
+                                {
+                                    "id": "f33330da-9717-472c-9d61-e455e7db6171",
+                                    "name": "Best profession found",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "admin",
+                                                "best-profession"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) Start date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "start",
+                                                    "value": "<date>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) End date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "end",
+                                                    "value": "<date>"
+                                                }
+                                            ],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"profession\": \"<string>\",\n  \"earnings\": \"<float>\"\n}",
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "json"
+                                },
+                                {
+                                    "id": "0f2d39da-198c-4bf9-9ec2-44b6a6963dfd",
+                                    "name": "Invalid date range or missing parameters",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "admin",
+                                                "best-profession"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) Start date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "start",
+                                                    "value": "<date>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) End date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "end",
+                                                    "value": "<date>"
+                                                }
+                                            ],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "Bad Request",
+                                    "code": 400,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                },
+                                {
+                                    "id": "4a184e4f-8f8f-4a37-ae83-3fa8c9b18277",
+                                    "name": "Internal server error",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "admin",
+                                                "best-profession"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) Start date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "start",
+                                                    "value": "<date>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) End date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "end",
+                                                    "value": "<date>"
+                                                }
+                                            ],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "Internal Server Error",
+                                    "code": 500,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "best-clients",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "7d04b89b-bcf9-42d3-a6c6-4b81a965712f",
+                            "name": "Get the clients that paid the most in a time range",
+                            "request": {
+                                "name": "Get the clients that paid the most in a time range",
+                                "description": {
+                                    "content": "Returns the top clients ranked by their total payments, limited by the optional `limit` query param.",
+                                    "type": "text/plain"
+                                },
+                                "url": {
+                                    "path": [
+                                        "admin",
+                                        "best-clients"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) Start date (YYYY-MM-DD)",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "start",
+                                            "value": "<date>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) End date (YYYY-MM-DD)",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "end",
+                                            "value": "<date>"
+                                        },
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "Max number of clients to return (default is 2)",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "limit",
+                                            "value": "2"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                            },
+                            "response": [
+                                {
+                                    "id": "20751331-8030-425c-8cba-ff298fd69af7",
+                                    "name": "Top clients retrieved",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "admin",
+                                                "best-clients"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) Start date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "start",
+                                                    "value": "<date>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) End date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "end",
+                                                    "value": "<date>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "Max number of clients to return (default is 2)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "limit",
+                                                    "value": "2"
+                                                }
+                                            ],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"fullName\": \"<string>\",\n    \"paid\": \"<number>\"\n  },\n  {\n    \"id\": \"<integer>\",\n    \"fullName\": \"<string>\",\n    \"paid\": \"<number>\"\n  }\n]",
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "json"
+                                },
+                                {
+                                    "id": "373c6621-8066-4e2d-8cd4-76a88e50a70b",
+                                    "name": "Invalid parameters",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "admin",
+                                                "best-clients"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) Start date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "start",
+                                                    "value": "<date>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) End date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "end",
+                                                    "value": "<date>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "Max number of clients to return (default is 2)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "limit",
+                                                    "value": "2"
+                                                }
+                                            ],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "Bad Request",
+                                    "code": 400,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                },
+                                {
+                                    "id": "395f11f2-fd45-4855-a565-f3210d0379ce",
+                                    "name": "Internal server error",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "admin",
+                                                "best-clients"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) Start date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "start",
+                                                    "value": "<date>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) End date (YYYY-MM-DD)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "end",
+                                                    "value": "<date>"
+                                                },
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "Max number of clients to return (default is 2)",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "limit",
+                                                    "value": "2"
+                                                }
+                                            ],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "Internal Server Error",
+                                    "code": 500,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "balances",
+            "description": "",
+            "item": [
+                {
+                    "name": "deposit",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "{userId}",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "2efd5996-5da8-4882-b37a-c9ca72295c80",
+                                    "name": "Deposit money to a user's balance",
+                                    "request": {
+                                        "name": "Deposit money to a user's balance",
+                                        "description": {
+                                            "content": "Allows depositing a specific amount to the balance of a user (typically from a client).",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "balances",
+                                                "deposit",
+                                                ":userId"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<integer>",
+                                                    "key": "userId",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) The ID of the user receiving the deposit",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"amount\": \"<float>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "1566c0a9-85e3-4c2f-97b7-0eba9327a835",
+                                            "name": "Deposit successful",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "balances",
+                                                        "deposit",
+                                                        ":userId"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"amount\": \"<float>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        },
+                                        {
+                                            "id": "b455677e-c43f-40d2-a804-3195ec4320eb",
+                                            "name": "Validation failed or deposit not allowed",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "balances",
+                                                        "deposit",
+                                                        ":userId"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"amount\": \"<float>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Bad Request",
+                                            "code": 400,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        },
+                                        {
+                                            "id": "5b5747af-8b49-4d2e-8ce9-86d28d0e7257",
+                                            "name": "User not found",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "balances",
+                                                        "deposit",
+                                                        ":userId"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"amount\": \"<float>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Not Found",
+                                            "code": 404,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "contracts",
+            "description": "",
+            "item": [
+                {
+                    "name": "{id}",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "7bbf9d72-ce04-414d-a394-b9362bc7e2bf",
+                            "name": "Get contract by ID",
+                            "request": {
+                                "name": "Get contract by ID",
+                                "description": {
+                                    "content": "Returns a contract by ID, only if the profile is either the client or contractor.",
+                                    "type": "text/plain"
+                                },
+                                "url": {
+                                    "path": [
+                                        "contracts",
+                                        ":id"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": [
+                                        {
+                                            "type": "any",
+                                            "value": "<integer>",
+                                            "key": "id",
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "(Required) The ID of the contract",
+                                                "type": "text/plain"
+                                            }
+                                        }
+                                    ]
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                            },
+                            "response": [
+                                {
+                                    "id": "b1852102-4fdc-4b81-9c8c-b91921725f3d",
+                                    "name": "Contract found",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "contracts",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"value\": \"reference #/components/schemas/Contract not found in the OpenAPI spec\"\n}",
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "json"
+                                },
+                                {
+                                    "id": "93433d3d-8b13-463e-a16d-0902bedc6739",
+                                    "name": "Invalid contract ID",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "contracts",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "Bad Request",
+                                    "code": 400,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                },
+                                {
+                                    "id": "d34822df-ea7c-442b-b7a9-b6f377a729bd",
+                                    "name": "Contract not found or access denied",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "contracts",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "Not Found",
+                                    "code": 404,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "a58a937f-6306-40a0-95b8-c03c82119d5f",
+                    "name": "Get all active contracts for the profile",
+                    "request": {
+                        "name": "Get all active contracts for the profile",
+                        "description": {
+                            "content": "Returns all contracts associated with the current profile that are not terminated.",
+                            "type": "text/plain"
+                        },
+                        "url": {
+                            "path": [
+                                "contracts"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "method": "GET",
+                        "body": {},
+                        "auth": null
+                    },
+                    "response": [
+                        {
+                            "id": "ff7d5f08-4575-4f75-aa44-9042b5a362cd",
+                            "name": "List of contracts",
+                            "originalRequest": {
+                                "url": {
+                                    "path": [
+                                        "contracts"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "[\n  {\n    \"value\": \"reference #/components/schemas/Contract not found in the OpenAPI spec\"\n  },\n  {\n    \"value\": \"reference #/components/schemas/Contract not found in the OpenAPI spec\"\n  }\n]",
+                            "cookie": [],
+                            "_postman_previewlanguage": "json"
+                        }
+                    ],
+                    "event": [],
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "jobs",
+            "description": "",
+            "item": [
+                {
+                    "name": "unpaid",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "064aee5a-d115-47ab-bc85-004c6e70ec76",
+                            "name": "Get unpaid jobs",
+                            "request": {
+                                "name": "Get unpaid jobs",
+                                "description": {
+                                    "content": "Returns all unpaid jobs for the currently authenticated user (contractor).",
+                                    "type": "text/plain"
+                                },
+                                "url": {
+                                    "path": [
+                                        "jobs",
+                                        "unpaid"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                            },
+                            "response": [
+                                {
+                                    "id": "03c40473-e931-43ee-912c-84a3a7d0e2f4",
+                                    "name": "List of unpaid jobs",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "jobs",
+                                                "unpaid"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "[\n  {\n    \"value\": \"reference #/components/schemas/Job not found in the OpenAPI spec\"\n  },\n  {\n    \"value\": \"reference #/components/schemas/Job not found in the OpenAPI spec\"\n  }\n]",
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "json"
+                                },
+                                {
+                                    "id": "fab92ece-df6a-40ad-94dc-c7eb62adafe5",
+                                    "name": "Unauthorized",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "jobs",
+                                                "unpaid"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "Unauthorized",
+                                    "code": 401,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "{job_id}",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "pay",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "86bdc40a-9086-4130-9c53-2af01f8083bc",
+                                    "name": "Pay for a job",
+                                    "request": {
+                                        "name": "Pay for a job",
+                                        "description": {
+                                            "content": "Allows a client to pay for a specific job, transferring money to the contractor if sufficient balance is available.",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "jobs",
+                                                ":job_id",
+                                                "pay"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<integer>",
+                                                    "key": "job_id",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ID of the job to pay for",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "8f6010a4-b0e7-4a9e-b0ea-e2d9cb50d375",
+                                            "name": "Job paid successfully",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "jobs",
+                                                        ":job_id",
+                                                        "pay"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"success\": \"<boolean>\",\n  \"job\": {\n    \"value\": \"reference #/components/schemas/Job not found in the OpenAPI spec\"\n  }\n}",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        },
+                                        {
+                                            "id": "ea04e736-8293-4e5f-af28-847e3c4e7934",
+                                            "name": "Payment failed (e.g., not enough balance, job already paid)",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "jobs",
+                                                        ":job_id",
+                                                        "pay"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "POST",
+                                                "body": {}
+                                            },
+                                            "status": "Bad Request",
+                                            "code": 400,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        },
+                                        {
+                                            "id": "4a539399-6efe-4fd3-9b90-47240f9f395f",
+                                            "name": "Job not found or unauthorized",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "jobs",
+                                                        ":job_id",
+                                                        "pay"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "method": "POST",
+                                                "body": {}
+                                            },
+                                            "status": "Not Found",
+                                            "code": 404,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "event": [],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "/"
+        }
+    ],
+    "info": {
+        "_postman_id": "2a831304-3890-42ca-9759-f45cb6ba3846",
+        "name": "Deel Backend Task API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": {
+            "content": "Auto-generated OpenAPI documentation for the Deel backend task",
+            "type": "text/plain"
+        }
+    }
+}

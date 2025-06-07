@@ -1,0 +1,9 @@
+openapi: 3.0.0
+info:
+  title: Deel BE Node Hometask
+  version: 1.0.0
+  description: API for Deel backend hometask
+servers:
+  - url: http://localhost:3001
+paths: {}
+components: {}
