@@ -1140,10 +1140,10 @@
     ],
     "info": {
         "_postman_id": "2a831304-3890-42ca-9759-f45cb6ba3846",
-        "name": "Deel Backend Task API",
+        "name": "Baseframe API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {
-            "content": "Auto-generated OpenAPI documentation for the Deel backend task",
+            "content": "Auto-generated OpenAPI documentation for the Baseframe API",
             "type": "text/plain"
         }
     }

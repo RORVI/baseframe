@@ -5,9 +5,9 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Deel Backend Task API',
+      title: 'Baseframe API',
       version: '1.0.0',
-      description: 'Auto-generated OpenAPI documentation for the Deel backend task'
+      description: 'Auto-generated OpenAPI documentation for the Baseframe API'
     }
   },
   apis: [path.join(__dirname, '../routes/*.js')],

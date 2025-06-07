@@ -172,6 +172,8 @@ src/
 - [ ] GraphQL subscriptions for real-time updates
 - [ ] Role-based auth (client vs contractor)
 - [ ] Auditing logs per mutation
+- [ ] Transition this to TS
+- [ ] Swap SQLite out with PostgreSQL
 
 ---
 
