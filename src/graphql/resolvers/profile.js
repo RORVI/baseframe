@@ -1,15 +1,18 @@
 const { Profile, Contract } = require('../../database/models');
 const logger = require('../../utils/logger');
+const DataLoader = require('dataloader');
 
 module.exports = {
     Query: {
         profiles: async () => {
             logger.info('[GraphQL] profiles query called');
-            return await Profile.findAll();
+            const all = await Profile.findAll();
+            all.forEach(p => loaders.profile.prime(p.id, p)); 
+            return all;
         },
         profile: async (_, { id }) => {
             logger.info(`[GraphQL] profile query called with id: ${id}`);
-            return await Profile.findByPk(id);
+            return await loaders.profile.load(id);
         },
     },
     Mutation: {

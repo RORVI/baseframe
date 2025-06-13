@@ -74,7 +74,8 @@ paths:
         - in: query
           name: limit
           required: false
-          description: Max number of clients to return (default: 2)
+          description: |
+            Max number of clients to return (default: 2)
           schema:
             type: integer
             default: 2

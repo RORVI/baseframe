@@ -7,6 +7,7 @@
     "apollo-server-express": "^3.13.0",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
+    "dataloader": "^2.2.3",
     "express": "^4.17.1",
     "express-validator": "^7.2.1",
     "graphiql": "^4.1.2",
