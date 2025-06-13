@@ -3,13 +3,16 @@ info:
   title: Baseframe API
   version: 1.0.0
   description: Auto-generated OpenAPI documentation for the Baseframe project
+tags:
+  - name: Admin
+  - name: Balances
+  - name: Contracts
+  - name: Jobs
 paths:
   /admin/best-profession:
     get:
       summary: Get the profession that earned the most money in a time range
-      description: >-
-        Returns the profession with the highest total earnings between the given
-        start and end dates.
+      description: Returns the profession with the highest total earnings between the given start and end dates.
       tags:
         - Admin
       parameters:
@@ -46,12 +49,11 @@ paths:
           description: Invalid date range or missing parameters
         '500':
           description: Internal server error
+
   /admin/best-clients:
     get:
       summary: Get the clients that paid the most in a time range
-      description: >-
-        Returns the top clients ranked by their total payments, limited by the
-        optional `limit` query param.
+      description: Returns the top clients ranked by their total payments.
       tags:
         - Admin
       parameters:
@@ -72,7 +74,7 @@ paths:
         - in: query
           name: limit
           required: false
-          description: Max number of clients to return (default is 2)
+          description: Max number of clients to return (default: 2)
           schema:
             type: integer
             default: 2
@@ -99,19 +101,18 @@ paths:
           description: Invalid parameters
         '500':
           description: Internal server error
+
   /balances/deposit/{userId}:
     post:
       summary: Deposit money to a user's balance
-      description: >-
-        Allows depositing a specific amount to the balance of a user (typically
-        from a client).
+      description: Allows depositing a specific amount to a user's balance.
       tags:
         - Balances
       parameters:
         - in: path
           name: userId
           required: true
-          description: The ID of the user receiving the deposit
+          description: User ID to deposit to
           schema:
             type: integer
             minimum: 1
@@ -121,6 +122,8 @@ paths:
           application/json:
             schema:
               type: object
+              required:
+                - amount
               properties:
                 amount:
                   type: number
@@ -142,25 +145,24 @@ paths:
                     type: string
                     example: Deposit completed
         '400':
-          description: Validation failed or deposit not allowed
+          description: Validation failed
         '404':
           description: User not found
+
   /contracts/{id}:
     get:
       summary: Get contract by ID
-      description: >-
-        Returns a contract by ID, only if the profile is either the client or
-        contractor.
+      description: Returns a contract only if the profile is the client or contractor.
       tags:
         - Contracts
       parameters:
         - in: path
           name: id
           required: true
-          description: The ID of the contract
           schema:
             type: integer
             minimum: 1
+          description: ID of the contract
       responses:
         '200':
           description: Contract found
@@ -170,14 +172,15 @@ paths:
                 $ref: '#/components/schemas/Contract'
         '400':
           description: Invalid contract ID
+        '403':
+          description: Forbidden
         '404':
-          description: Contract not found or access denied
+          description: Contract not found
+
   /contracts:
     get:
-      summary: Get all active contracts for the profile
-      description: >-
-        Returns all contracts associated with the current profile that are not
-        terminated.
+      summary: Get all active contracts for current profile
+      description: Returns all non-terminated contracts for the authenticated user.
       tags:
         - Contracts
       responses:
@@ -189,12 +192,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Contract'
+        '401':
+          description: Unauthorized
+
   /jobs/unpaid:
     get:
       summary: Get unpaid jobs
-      description: >-
-        Returns all unpaid jobs for the currently authenticated user
-        (contractor).
+      description: Returns unpaid jobs for the authenticated contractor.
       tags:
         - Jobs
       responses:
@@ -208,22 +212,21 @@ paths:
                   $ref: '#/components/schemas/Job'
         '401':
           description: Unauthorized
+
   /jobs/{job_id}/pay:
     post:
       summary: Pay for a job
-      description: >-
-        Allows a client to pay for a specific job, transferring money to the
-        contractor if sufficient balance is available.
+      description: Allows a client to pay for a job, transferring funds if balance allows.
       tags:
         - Jobs
       parameters:
         - in: path
           name: job_id
           required: true
-          description: ID of the job to pay for
           schema:
             type: integer
             minimum: 1
+          description: ID of the job
       responses:
         '200':
           description: Job paid successfully
@@ -238,8 +241,82 @@ paths:
                   job:
                     $ref: '#/components/schemas/Job'
         '400':
-          description: Payment failed (e.g., not enough balance, job already paid)
+          description: Payment failed
+        '403':
+          description: Not authorized
         '404':
-          description: Job not found or unauthorized
-components: {}
-tags: []
+          description: Job not found
+
+components:
+  schemas:
+    Contract:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "b17f22cc-083f-47ab-b637-d4b44d421b71"
+        terms:
+          type: string
+          example: "Deliver the MVP within 3 weeks."
+        status:
+          type: string
+          enum: [new, in_progress, terminated]
+          example: in_progress
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    Job:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "e9b7a4fc-05fc-40b6-a6d2-9e8d56e03e6a"
+        description:
+          type: string
+          example: "Design UI mockups for client app"
+        price:
+          type: number
+          format: float
+          example: 1250.00
+        paid:
+          type: boolean
+          example: false
+        paymentDate:
+          type: string
+          format: date-time
+          nullable: true
+        contractId:
+          type: string
+          format: uuid
+          example: "b17f22cc-083f-47ab-b637-d4b44d421b71"
+
+    Profile:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "f2c6318c-5b5a-4e6e-a937-7990cbeab90f"
+        firstName:
+          type: string
+          example: Alice
+        lastName:
+          type: string
+          example: Johnson
+        profession:
+          type: string
+          example: Graphic Designer
+        balance:
+          type: number
+          format: float
+          example: 1200.50
+        type:
+          type: string
+          enum: [client, contractor]
+          example: contractor
